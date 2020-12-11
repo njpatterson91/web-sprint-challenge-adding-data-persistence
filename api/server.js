@@ -1,13 +1,13 @@
 // build your server here
 const express = require("express");
 const server = express();
-// const carsRouter = require("./cars/cars-router");
-// const morgan = require("morgan");
-// const cors = require("cors");
+const resourceRouter = require("./resource/router");
+const projectRouter = require("./project/router");
 
 server.use(express.json());
 
-//server.use("/api/cars", carsRouter);
+server.use("/api/resources", resourceRouter);
+server.use("/api/projects", projectRouter);
 
 server.get("/", (_, res) => {
   res.status(200).json({ message: "API Live" });
