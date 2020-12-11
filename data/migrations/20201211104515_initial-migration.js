@@ -27,7 +27,7 @@ exports.up = function (knex) {
         .inTable("projects");
       table.text("description");
       table.text("notes");
-      table.text("completed");
+      table.boolean("completed").defaultTo(false);
     })
     .createTable("resourcesAndProjects", (table) => {
       table.increments();

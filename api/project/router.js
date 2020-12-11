@@ -36,7 +36,24 @@ router.post("/", (req, res) => {
     //   res.status(200).json(data);
     // });
     .then((data) => {
-      res.status(200).json(data);
+      return Model.getById(data);
+    })
+    .then((data) => {
+      if (data["completed"] === 0) {
+        res.status(200).json({
+          id: data.id,
+          name: data.name,
+          description: data.description,
+          completed: false,
+        });
+      } else {
+        res.status(200).json({
+          id: data.id,
+          name: data.name,
+          description: data.description,
+          completed: true,
+        });
+      }
     })
     .catch((err) => {
       res.status(400).json(err.message);
