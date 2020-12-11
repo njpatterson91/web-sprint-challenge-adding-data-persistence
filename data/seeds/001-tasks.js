@@ -7,19 +7,19 @@ exports.seed = function (knex) {
       return knex("tasks").insert([
         {
           id: 1,
-          taskID: 2,
+          project_id: 2,
           description: "task1",
           notes: "testing",
         },
         {
           id: 2,
-          taskID: 2,
+          project_id: 2,
           description: "task2",
           notes: "testing",
         },
         {
           id: 3,
-          taskID: 2,
+          project_id: 2,
           description: "task3",
           notes: "testing",
         },

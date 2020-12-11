@@ -20,12 +20,12 @@ exports.up = function (knex) {
     .createTable("tasks", (table) => {
       table.increments();
       table
-        .bigInteger("taskID")
+        .bigInteger("project_id")
         .unsigned()
         .index()
         .references("id")
         .inTable("projects");
-      table.text("description");
+      table.text("description").notNullable();
       table.text("notes");
       table.boolean("completed").defaultTo(false);
     })
